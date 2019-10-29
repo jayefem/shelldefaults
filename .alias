@@ -1,0 +1,32 @@
+alias l=ls
+alias ll='ls -lFh'
+alias lla='ls -alFh'
+alias la='ls -aF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+
+# Java
+alias java_ls='/usr/libexec/java_home -V 2>&1 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
+alias psjava='ps aux|grep java'
+# '\'' escapes a single '
+alias killjboss='ps aux | grep jboss | awk '\''NR==1{print $2}'\'' | cut -d'\'' '\'' -f1 | xargs kill -9'
+alias killtomcat='ps aux | grep tomcat | awk '\''NR==1{print $2}'\'' | cut -d'\'' '\'' -f1 | xargs kill -9'
+alias mvnsrc="mvn dependency:sources"
+alias mvnskip="mvn -Dmaven.test.skip=true"
+alias mvnignore="mvn -Dmaven.test.failure.ignore=true --fail-at-end"
+alias mvnversion="mvn versions:set -DnewVersion="
+#alias mvnsonar='mvn clean verify; mvn org.jacoco:jacoco-maven-plugin::prepare-agent sonar:sonar -Djava.version=1.7. -Dsonar.branch=${tenant:-core}-$(git rev-parse --abbrev-ref HEAD) -Dsonar.projectVersion=$(git log --format="%H" -n 1)'
+alias mvnsonar='mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.branch=$(git rev-parse --abbrev-ref HEAD)'
+alias aemdeploy='mvn clean install -PautoInstallPackage'
+alias aembundle='mvn clean install -PautoInstallBundle'
+
+# shelltools from github
+alias cdp='source cdsource.sh'
+alias run='source run.sh'
+alias build='source build.sh'
+alias rgit="rgit.sh"
+alias rmvn="rmvn.sh"
