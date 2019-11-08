@@ -37,7 +37,7 @@ alias rmvncleanv="find . -type f -name pom.xml -execdir pwd \; -execdir rm -rfv 
 alias rngclean="find . -type f -name package.json -execdir pwd \; -execdir rm -rf ./node_modules/ 2> /dev/null \;"
 
 # Clean Angular JS node_modules directories in all subfolders with verbose output
-alias rngleanv="find . -type f -name package.json -execdir pwd \; -execdir rm -rfv ./node_modules/ 2> /dev/null \;"
+alias rngcleanv="find . -type f -name package.json -execdir pwd \; -execdir rm -rfv ./node_modules/ 2> /dev/null \;"
 
 # AEM deployment of package
 alias aemdeploy='mvn clean install -PautoInstallPackage'
