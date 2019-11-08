@@ -1,3 +1,4 @@
+# Linux command abbreviations
 alias l=ls
 alias ll='ls -lFh'
 alias lla='ls -alFh'
@@ -12,16 +13,36 @@ alias .......='cd ../../../../../..'
 # Java
 alias java_ls='/usr/libexec/java_home -V 2>&1 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
 alias psjava='ps aux|grep java'
+
+# Kill servers
 # '\'' escapes a single '
 alias killjboss='ps aux | grep jboss | awk '\''NR==1{print $2}'\'' | cut -d'\'' '\'' -f1 | xargs kill -9'
 alias killtomcat='ps aux | grep tomcat | awk '\''NR==1{print $2}'\'' | cut -d'\'' '\'' -f1 | xargs kill -9'
+
+# Maven commands
 alias mvnsrc="mvn dependency:sources"
 alias mvnskip="mvn -Dmaven.test.skip=true"
 alias mvnignore="mvn -Dmaven.test.failure.ignore=true --fail-at-end"
 alias mvnversion="mvn versions:set -DnewVersion="
 #alias mvnsonar='mvn clean verify; mvn org.jacoco:jacoco-maven-plugin::prepare-agent sonar:sonar -Djava.version=1.7. -Dsonar.branch=${tenant:-core}-$(git rev-parse --abbrev-ref HEAD) -Dsonar.projectVersion=$(git log --format="%H" -n 1)'
 alias mvnsonar='mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.branch=$(git rev-parse --abbrev-ref HEAD)'
+
+# Clean Maven target directories in all subfolders
+alias rmvnclean="find . -type f -name pom.xml -execdir pwd \; -execdir rm -rf ./target/ 2> /dev/null \;"
+
+# Clean Maven target directories in all subfolders with verbose output
+alias rmvncleanv="find . -type f -name pom.xml -execdir pwd \; -execdir rm -rfv ./target/ 2> /dev/null \;"
+
+# Clean Angular JS node_modules directories in all subfolders
+alias rngclean="find . -type f -name package.json -execdir pwd \; -execdir rm -rf ./node_modules/ 2> /dev/null \;"
+
+# Clean Angular JS node_modules directories in all subfolders with verbose output
+alias rngleanv="find . -type f -name package.json -execdir pwd \; -execdir rm -rfv ./node_modules/ 2> /dev/null \;"
+
+# AEM deployment of package
 alias aemdeploy='mvn clean install -PautoInstallPackage'
+
+# AEM installation of package
 alias aembundle='mvn clean install -PautoInstallBundle'
 
 # shelltools from github
