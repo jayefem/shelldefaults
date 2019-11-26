@@ -46,8 +46,10 @@ alias aemdeploy='mvn clean install -PautoInstallPackage'
 alias aembundle='mvn clean install -PautoInstallBundle'
 
 # shelltools from github
-alias cdp='source cdsource.sh'
-alias run='source run.sh'
-alias build='source build.sh'
+alias cdp='source pcd.sh'
+alias run='source prun.sh'
+alias ptest='source ptest.sh'
+alias build='source pbuild.sh'
+alias stop='source pstop.sh'
 alias rgit="rgit.sh"
 alias rmvn="rmvn.sh"
