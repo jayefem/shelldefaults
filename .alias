@@ -49,6 +49,7 @@ alias aembundle='mvn clean install -PautoInstallBundle'
 alias cdp='source pcd.sh'
 alias run='source prun.sh'
 alias build='source pbuild.sh'
+alias clean='source pclean.sh'
 alias tests='source ptests.sh'
 alias stop='source pstop.sh'
 alias rgit="rgit.sh"
