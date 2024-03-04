@@ -3,12 +3,24 @@ alias l=ls
 alias ll='ls -lFh'
 alias lla='ls -alFh'
 alias la='ls -aF'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd......='cd ../../../../..'
+alias cd.......='cd ../../../../../..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
+
+# Common commands
+alias localaddress="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias cpuinfo='lscpu'
+alias editetchosts='sudo -i gedit /etc/hosts'
+alias dusum='du -csh --block-size=1G .'
 
 # Java
 alias java_ls='/usr/libexec/java_home -V 2>&1 | grep -E "\d.\d.\d_\d\d" | cut -d , -f 1 | colrm 1 4 | grep -v Home'
@@ -18,10 +30,11 @@ alias psjava='ps aux|grep java'
 # '\'' escapes a single '
 alias killjboss='ps aux | grep jboss | awk '\''NR==1{print $2}'\'' | cut -d'\'' '\'' -f1 | xargs kill -9'
 alias killtomcat='ps aux | grep tomcat | awk '\''NR==1{print $2}'\'' | cut -d'\'' '\'' -f1 | xargs kill -9'
+alias killteams='ps aux | grep teams | awk '\''NR==1{print $2}'\'' | cut -d'\'' '\'' -f1 | xargs kill -9'
 
 # Maven commands
 alias mvnsrc="mvn dependency:sources"
-alias mvnskip="mvn -Dmaven.test.skip=true"
+alias mvnskip="mvn -Dmaven.test.skip=true -Djacoco.skip=true"
 alias mvnignore="mvn -Dmaven.test.failure.ignore=true --fail-at-end"
 alias mvnversion="mvn versions:set -DnewVersion="
 #alias mvnsonar='mvn clean verify; mvn org.jacoco:jacoco-maven-plugin::prepare-agent sonar:sonar -Djava.version=1.7. -Dsonar.branch=${tenant:-core}-$(git rev-parse --abbrev-ref HEAD) -Dsonar.projectVersion=$(git log --format="%H" -n 1)'
