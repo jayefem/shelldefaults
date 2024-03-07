@@ -3,6 +3,7 @@ alias l=ls
 alias ll='ls -lFh'
 alias lla='ls -alFh'
 alias la='ls -aF'
+alias 'cd-'='cd -'
 alias cd..='cd ..'
 alias cd...='cd ../..'
 alias cd....='cd ../../..'
